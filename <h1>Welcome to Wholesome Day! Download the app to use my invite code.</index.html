@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You've Been Invited to Wholesome Day!</title>
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-light: #e8f5e9;
+            --text: #333333;
+            --background: #fcfdfc;
+            --card-bg: #ffffff;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 450px;
+            width: 100%;
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 32px 24px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            border: 1px solid rgba(46, 125, 50, 0.1);
+        }
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary-light);
+            border-radius: 20px;
+            margin: 0 auto 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+        }
+        h1 { font-size: 24px; font-weight: 700; color: #111; margin-bottom: 8px; }
+        .subtitle { font-size: 15px; color: #666; margin-bottom: 28px; }
+        
+        .reward-badge {
+            background-color: #fff3e0;
+            color: #ef6c00;
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 28px;
+            border: 1px solid rgba(239, 108, 0, 0.2);
+        }
+
+        .code-section {
+            background: #f4f6f4;
+            border: 2px dashed #cbd5cb;
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 32px;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+        .code-section:hover { background: #eaedea; }
+        .code-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #777; margin-bottom: 4px; }
+        .code-value { font-size: 22px; font-weight: 700; color: var(--primary); font-family: monospace; letter-spacing: 2px; }
+        .copy-toast { font-size: 11px; color: #555; margin-top: 4px; display: block; }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            padding: 16px;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: transform 0.1s ease;
+        }
+        .btn:active { transform: scale(0.98); }
+        .btn-google { background-color: #000000; color: white; }
+        .btn-apple { background-color: #000000; color: white; border-top: 1px solid #333; }
+        .btn svg { width: 22px; height: 22px; fill: currentColor; }
+
+        .footer-note { font-size: 12px; color: #999; margin-top: 24px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="icon-box">🌿</div>
+    <h1>You're Invited!</h1>
+    <p class="subtitle">Your friend has gifted you premium access to <strong>Wholesome Day</strong> — the secure, all-in-one health, wealth, and mind dashboard.</p>
+    
+    <div class="reward-badge">
+        🎁 Extended Free Pro Trial Unlocked!
+    </div>
+
+    <div class="code-section" onclick="copyCode()">
+        <div class="code-label">Your Invitation Code</div>
+        <div class="code-value" id="refCode">FETCHING...</div>
+        <span class="copy-toast" id="toastText">Tap to copy code</span>
+    </div>
+
+    <a href="#" class="btn btn-google">
+        <!-- Play Store Icon -->
+        <svg viewBox="0 0 24 24"><path d="M5,2H19A2,2 0 0,1 21,4V20A2,2 0 0,1 19,22H5A2,2 0 0,1 3,20V4A2,2 0 0,1 5,2M17.5,18L10.5,11L17.5,4H14.5L8.5,10V12L14.5,18H17.5Z"/></svg>
+        Get it on Google Play
+    </a>
+
+    <a href="#" class="btn btn-apple">
+        <!-- App Store Icon -->
+        <svg viewBox="0 0 24 24"><path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.1,16.67C20.08,16.74 19.67,18.11 18.71,19.5M15.97,4.17C16.63,3.37 17.07,2.28 16.95,1C16,1.04 14.9,1.6 14.24,2.38C13.68,3.04 13.19,4.14 13.34,5.39C14.39,5.47 15.4,4.88 15.97,4.17Z"/></svg>
+        Download on the App Store
+    </a>
+
+    <p class="footer-note">Copy your invitation code above and enter it during account registration inside the app to apply your extended trial.</p>
+</div>
+
+<script>
+    // Extract referral code automatically from url parameter (?ref=CODE)
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    const referralCode = getQueryParam('ref') || 'WELCOME';
+    document.getElementById('refCode').innerText = referralCode.toUpperCase();
+
+    function copyCode() {
+        const codeText = document.getElementById('refCode').innerText;
+        navigator.clipboard.writeText(codeText).then(() => {
+            const toast = document.getElementById('toastText');
+            toast.innerText = "✓ Code Copied Successfully!";
+            toast.style.color = "#2e7d32";
+            setTimeout(() => {
+                toast.innerText = "Tap to copy code";
+                toast.style.color = "#555";
+            }, 2500);
+        });
+    }
+</script>
+
+</body>
+</html>
