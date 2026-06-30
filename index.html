@@ -1,156 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>You've Been Invited to Wholesome Day!</title>
-    <style>
-        :root {
-            --primary: #2e7d32;
-            --primary-light: #e8f5e9;
-            --text: #333333;
-            --background: #fcfdfc;
-            --card-bg: #ffffff;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--background);
-            color: var(--text);
-            line-height: 1.6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        .container {
-            max-width: 450px;
-            width: 100%;
-            background: var(--card-bg);
-            border-radius: 24px;
-            padding: 32px 24px;
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            border: 1px solid rgba(46, 125, 50, 0.1);
-        }
-        .icon-box {
-            width: 80px;
-            height: 80px;
-            background-color: var(--primary-light);
-            border-radius: 20px;
-            margin: 0 auto 24px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 40px;
-        }
-        h1 { font-size: 24px; font-weight: 700; color: #111; margin-bottom: 8px; }
-        .subtitle { font-size: 15px; color: #666; margin-bottom: 28px; }
-        
-        .reward-badge {
-            background-color: #fff3e0;
-            color: #ef6c00;
-            padding: 10px 16px;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 14px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            margin-bottom: 28px;
-            border: 1px solid rgba(239, 108, 0, 0.2);
-        }
+<!-- Wholesome Day Marketing & Referral Block -->
+<div align="center">
+  <img src="https://replit.app" alt="Wholesome Day Logo" width="120" style="border-radius: 24px; margin-bottom: 16px;"/>
+  
+  <h2>💡 Everything you need to track your day, in ONE single app.</h2>
+  <p><b>Wholesome Day</b> is your personal assistant for fitness goals, budget tracking, calendar tasks, and daily journaling.</p>
 
-        .code-section {
-            background: #f4f6f4;
-            border: 2px dashed #cbd5cb;
-            border-radius: 16px;
-            padding: 16px;
-            margin-bottom: 32px;
-            cursor: pointer;
-            position: relative;
-            transition: all 0.2s ease;
-        }
-        .code-section:hover { background: #eaedea; }
-        .code-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #777; margin-bottom: 4px; }
-        .code-value { font-size: 22px; font-weight: 700; color: var(--primary); font-family: monospace; letter-spacing: 2px; }
-        .copy-toast { font-size: 11px; color: #555; margin-top: 4px; display: block; }
+  <hr width="60%" />
 
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            width: 100%;
-            padding: 16px;
-            border-radius: 14px;
-            font-weight: 600;
-            font-size: 16px;
-            text-decoration: none;
-            margin-bottom: 12px;
-            transition: transform 0.1s ease;
-        }
-        .btn:active { transform: scale(0.98); }
-        .btn-google { background-color: #000000; color: white; }
-        .btn-apple { background-color: #000000; color: white; border-top: 1px solid #333; }
-        .btn svg { width: 22px; height: 22px; fill: currentColor; }
+  <h3>💸 Want 1 Year of Premium for FREE?</h3>
+  <p>Share your unique referral link from your app settings panel.</p>
+  <p><b>1 successful invite = 1 week free</b> | <b>15 successful invites = 1 full year free</b>. It’s that easy!</p>
 
-        .footer-note { font-size: 12px; color: #999; margin-top: 24px; }
-    </style>
-</head>
-<body>
+  <br />
 
-<div class="container">
-    <div class="icon-box">🌿</div>
-    <h1>You're Invited!</h1>
-    <p class="subtitle">Your friend has gifted you premium access to <strong>Wholesome Day</strong> — the secure, all-in-one health, wealth, and mind dashboard.</p>
-    
-    <div class="reward-badge">
-        🎁 Extended Free Pro Trial Unlocked!
-    </div>
-
-    <div class="code-section" onclick="copyCode()">
-        <div class="code-label">Your Invitation Code</div>
-        <div class="code-value" id="refCode">FETCHING...</div>
-        <span class="copy-toast" id="toastText">Tap to copy code</span>
-    </div>
-
-        <!-- App Store and Google Play Clickable Store Badges -->
+  <!-- App Store and Google Play Clickable Store Badges -->
   <a href="https://replit.app" target="_blank" rel="noopener noreferrer">
     <img src="https://wikimedia.org" alt="Get it on Google Play" height="50" style="margin-right: 8px;" />
   </a>
-  <a href="https://replit.app" target="_blank" rel="noopener noreferrer">
-    <img src="https://wikimedia.org" alt="Download on the App Store" height="50" />
+  <a href="https://wikimedia.org" alt="Download on the App Store" height="50" />
   </a>
 
-
-    <p class="footer-note">Copy your invitation code above and enter it during account registration inside the app to apply your extended trial.</p>
+  <br /><br />
+  <p>✨ Individual modules start at just $1.99/mo. Tap a badge above to download and launch the app instantly!</p>
 </div>
-
-<script>
-    // Extract referral code automatically from url parameter (?ref=CODE)
-    function getQueryParam(param) {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(param);
-    }
-
-    const referralCode = getQueryParam('ref') || 'WELCOME';
-    document.getElementById('refCode').innerText = referralCode.toUpperCase();
-
-    function copyCode() {
-        const codeText = document.getElementById('refCode').innerText;
-        navigator.clipboard.writeText(codeText).then(() => {
-            const toast = document.getElementById('toastText');
-            toast.innerText = "✓ Code Copied Successfully!";
-            toast.style.color = "#2e7d32";
-            setTimeout(() => {
-                toast.innerText = "Tap to copy code";
-                toast.style.color = "#555";
-            }, 2500);
-        });
-    }
-</script>
-
-</body>
-</html>
